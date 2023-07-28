@@ -1,0 +1,19 @@
+{
+    "name": "rterrado/widget-inspector",
+    "description": "Inspector for Yotpo Widgets 3.0",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Rterrado\\WidgetInspector\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "rterrado",
+            "email": "terradokenjie@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
