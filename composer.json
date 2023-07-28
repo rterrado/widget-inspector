@@ -18,6 +18,6 @@
     "require": {
         "kenjiefx/scratch-php": "dev-main",
         "kenjiefx/venta-css": "dev-main",
-        "kenjiefx/strawberry-scratch": "dev-main"
+        "kenjiefx/strawberry-scratch": "1.2.0.x-dev"
     }
 }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6da268ab17629e70df06b411943fe0ba",
+    "content-hash": "fb8b65b23424230e5bbdf6b3ec8e1e42",
     "packages": [
         {
             "name": "guzzlehttp/psr7",
@@ -170,23 +170,22 @@
         },
         {
             "name": "kenjiefx/strawberry-scratch",
-            "version": "dev-main",
+            "version": "1.2.0.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kenjiefx/strawberry-scratch.git",
-                "reference": "66f299addeb1aae008cc2462d2d1cd2024194d16"
+                "reference": "3d23af920b08a42e8a204b07962857685f747559"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kenjiefx/strawberry-scratch/zipball/66f299addeb1aae008cc2462d2d1cd2024194d16",
-                "reference": "66f299addeb1aae008cc2462d2d1cd2024194d16",
+                "url": "https://api.github.com/repos/kenjiefx/strawberry-scratch/zipball/3d23af920b08a42e8a204b07962857685f747559",
+                "reference": "3d23af920b08a42e8a204b07962857685f747559",
                 "shasum": ""
             },
             "require": {
                 "kenjiefx/scratch-php": "dev-main",
                 "kenjiefx/venta-css": "dev-main"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -206,9 +205,9 @@
             "description": "StrawberryJS Extension for the Scratch PHP Site Generator",
             "support": {
                 "issues": "https://github.com/kenjiefx/strawberry-scratch/issues",
-                "source": "https://github.com/kenjiefx/strawberry-scratch/tree/main"
+                "source": "https://github.com/kenjiefx/strawberry-scratch/tree/1.2.0"
             },
-            "time": "2023-06-16T15:14:34+00:00"
+            "time": "2023-07-09T00:12:57+00:00"
         },
         {
             "name": "kenjiefx/venta-css",
@@ -1602,7 +1601,8 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "kenjiefx/scratch-php": 20,
-        "kenjiefx/venta-css": 20
+        "kenjiefx/venta-css": 20,
+        "kenjiefx/strawberry-scratch": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

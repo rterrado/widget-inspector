@@ -2,7 +2,7 @@
     "theme": "awesome",
     "exportDir": "\/dist",
     "build": {
-        "useRandomAssetsFileNames": true
+        "useRandomAssetsFileNames": false
     },
     "extensions": {
         "Kenjiefx\\StrawberryScratch\\StrawberryJS":{},
