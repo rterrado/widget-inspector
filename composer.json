@@ -15,5 +15,9 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require": {
+        "kenjiefx/scratch-php": "dev-main",
+        "kenjiefx/venta-css": "dev-main",
+        "kenjiefx/strawberry-scratch": "dev-main"
+    }
 }
