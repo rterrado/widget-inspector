@@ -1,0 +1,11 @@
+{
+    "theme": "awesome",
+    "exportDir": "\/dist",
+    "build": {
+        "useRandomAssetsFileNames": true
+    },
+    "extensions": {
+        "Kenjiefx\\StrawberryScratch\\StrawberryJS":{},
+        "Kenjiefx\\VentaCSS\\VentaCSS":{}
+    }
+}
