@@ -1,3 +1,3 @@
 <section xcomponent="@AppRouter">
-    <div xif="StateManager.ComponentState.state=='default'"></div>
+    <div xif="StateManager.Component.state=='default'"></div>
 </section>

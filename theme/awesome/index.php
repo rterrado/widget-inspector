@@ -9,14 +9,18 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/kenjiefx/strawberry-js@1.0.1/strawberry.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+        <script type="text/javascript">const blockAutoSubmit=e=>e.preventDefault()</script>
         <?php template_assets(); ?>
     </head>
-    <body xstrawberry="app">
+    <body xstrawberry="app" class="background-color-primary-extra-light">
         <?php component('AppRouter'); ?>
         <?php component('Loader'); ?>
-        <main id="main">
-            <div class="width-24 display-flex">
-                <?php template_content(); ?>
+        <main id="main" class="width-24">
+            <div class="width-24 display-flex device-height-24">
+                <?php component('SidebarToolkit'); ?>
+                <div class="flex-grow-1">
+                    <?php template_content(); ?>
+                </div>
             </div>
         </main>
     </body>

@@ -1,9 +1,11 @@
 import { BlockElements, PatchHelper, ScopeObject, StrawberryElement, app } from "../../strawberry/app";
+import { StateManagerFactory } from "../../strawberry/factories/StateManagerFactory";
 
-interface LoaderAnimation {
-    name: 'LoaderAnimation',
-    each:(element:StrawberryElement)=>void
-} 
+type AppLoaderState = 'active' | 'complete'
+
+type ComponentScope = {
+    StateManager: {}
+}
 
 /** The Page Loader Component */
 export interface AppLoader {
@@ -15,19 +17,24 @@ export interface AppLoader {
 }
 
 app.component<AppLoader>('Loader',(
-    $scope: ScopeObject,
+    $scope: ScopeObject<ComponentScope>,
     $patch: PatchHelper,
-    $block: BlockElements<LoaderAnimation>
+    StateManagerFactory: StateManagerFactory
 )=>{
+    const ComponentState = StateManagerFactory.createNewInstance<AppLoaderState,ComponentScope>({
+        name: 'Component',
+        scope: $scope,
+        patch: $patch
+    })
+    ComponentState.register('active')
+                  .register('complete')
+                  .switch('active')
     return {
         complete:()=>{
-            $block({
-                name: 'LoaderAnimation',
-                each:(loader)=>{
-                    loader.$element.innerHTML = '';
-                    document.getElementById('main').style.display = 'block';
-                }
-            });
+            setTimeout(()=>{
+                ComponentState.switch('complete')
+                document.getElementById('main').setAttribute('style','display:block')
+            },1000)
         }
     }
 })
