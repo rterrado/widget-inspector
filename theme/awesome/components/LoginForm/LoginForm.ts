@@ -1,4 +1,5 @@
 import { InjectableDependency, PatchHelper, ScopeObject, StrawberryApp, StrawberryElement, app } from "../../strawberry/app";
+import { AccountSvc } from "../../strawberry/services/AccountSvc";
 import { URLParser } from "../../strawberry/services/URLParser";
 import { AppLoader } from "../Loader/Loader";
 
@@ -34,7 +35,8 @@ app.component<LoginForm>('LoginForm',(
     $scope: ScopeObject<ComponentScope>,
     $patch: PatchHelper,
     Loader: AppLoader,
-    URLParser: URLParser
+    URLParser: URLParser,
+    AccountSvc: AccountSvc
 )=>{
     const errorCode = URLParser.getParamValue('error')
     const {appKey,productId} = URLParser.getData()
@@ -59,7 +61,7 @@ app.component<LoginForm>('LoginForm',(
         }
     }
     Loader.complete()
-    $scope.submit=(button)=>{
+    $scope.submit=async (button)=>{
         if ($scope.appKey===null||$scope.productId===null) {
             $scope.error = {code:1,message:'Please fill out all the required fields'}
             $patch()
@@ -71,6 +73,8 @@ app.component<LoginForm>('LoginForm',(
             return
         }
         button.addClass('is-button-loading')
+        const isValidAppKey = await AccountSvc.validate.appKey($scope.appKey)
+        console.log(isValidAppKey)
     }
     return {}
 })
