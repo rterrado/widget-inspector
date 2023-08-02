@@ -1,9 +1,9 @@
 <section xcomponent="@LoginForm" class="">
-    <div class="padding-x-21 padding-top-24">
+    <div class="padding-x-23 padding-top-24">
         <div class="letter-spacing-3 text-19"><span class="text-effect-super-bold font-weight-bold color-elegant-black">Hello, there!</span> 👋</div>
         <div class="text-2 letter-spacing--2 font-weight-400 color-bored-gray margin-top-5">To continue, please provide App Key and Product ID</div>
     </div>
-    <form class="padding-x-21 padding-top-15 padding-bottom-24" onsubmit="blockAutoSubmit(event)">
+    <form class="padding-x-23 padding-top-15 padding-bottom-24" onsubmit="blockAutoSubmit(event)">
         <?php snippet('input-box',[
             'model'=>'appKey',
             'label' => 'App Key',
@@ -25,7 +25,7 @@
                 'color-type' => 'primary',
                 'color' => 'white'
             ]); ?>
-            <div class="text-1 color-error margin-right-5">{{error.message}}</div>
+            <div class="label color-error margin-right-9">{{error.message}}</div>
         </div>
     </form>
 </section>

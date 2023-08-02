@@ -176,7 +176,7 @@
         "rule": "box-shadow:{value}",
 		"type": "dictionary",
 		"values": {
-            "card-standard":"1px 1px 3px 0 rgb(0 0 0 / 17%)"
+            "card-standard":"0px 0px 2px 0 rgb(0 0 0 / 17%);"
         },
 		"variants": "auto",
 		"separator": "-"
