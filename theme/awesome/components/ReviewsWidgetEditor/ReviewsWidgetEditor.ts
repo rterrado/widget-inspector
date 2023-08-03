@@ -54,7 +54,7 @@ app.component<ReviewsWidgetEditor>('ReviewsWidgetEditor',(
             ComponentState.switch('no-reviews-widget')
             return {}
         }
-    },2000)
+    },3000)
 
     return {}
 })
