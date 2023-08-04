@@ -192,7 +192,20 @@
         "rule": "overflow:{value}",
 		"type": "dictionary",
 		"values": {
-            "hidden":"hidden"
+            "hidden":"hidden",
+			"clip": "clip",
+			"scroll": "scroll"
+        },
+		"variants": "auto",
+		"separator": "-"
+    },
+	"overflow-y": {
+        "rule": "overflow-y:{value}",
+		"type": "dictionary",
+		"values": {
+            "hidden":"hidden",
+			"clip": "clip",
+			"scroll": "scroll"
         },
 		"variants": "auto",
 		"separator": "-"

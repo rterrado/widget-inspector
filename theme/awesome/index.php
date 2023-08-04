@@ -12,7 +12,7 @@
         <script type="text/javascript">const blockAutoSubmit=e=>e.preventDefault()</script>
         <?php template_assets(); ?>
     </head>
-    <body xstrawberry="app" class="background-color-primary-extra-light">
+    <body xstrawberry="app" class="background-color-primary-extra-light overflow-y-hidden">
         <?php component('AppRouter'); ?>
         <?php component('Loader'); ?>
         <main id="main" class="width-24">
