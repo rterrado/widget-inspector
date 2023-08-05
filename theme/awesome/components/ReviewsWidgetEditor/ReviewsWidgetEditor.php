@@ -99,39 +99,80 @@
     </div>
     <div xif="StateManager.Component.state=='widget'" class="...Editor.wrapper">
         <div class="...Editor.widget-display-pane display-flex flex-direction-column align-items-center justify-content-center">
-            <div class="width-23 height-17 overflow-y-scroll display-flex justify-content-center">
-                <div class="yotpo-widget-instance width-21" data-yotpo-instance-id="{{widgetInstanceId}}" data-yotpo-product-id="{{productId}}" data-yotpo-name="" data-yotpo-url="" data-yotpo-image-url="" data-yotpo-description="">
-                </div>
-            </div>
+            <?php component('ReviewsWidgetPreview'); ?>
         </div>
         <div class="...Editor.widget-settings-pane display-flex align-items-center justify-content-flex-start">
-            <div class="width-21 ..group.card_standard">
-                <div class="padding-x-21 padding-top-17 padding-bottom-17 display-flex align-items-center">
-                    <div class="letter-spacing--2 text-11 text-effect-super-bold font-weight-500 color-elegant-black">Reviews Widget</div>
+            <div id="WidgetSettings" class="width-21 ..group.card_standard">
+                <div xif="StateManager.WidgetSettings.state=='Main'">
+                    <div class="padding-x-21 padding-top-17 padding-bottom-17 display-flex align-items-center setting-header">
+                        <div class="letter-spacing--2 text-11 text-effect-super-bold font-weight-500 color-elegant-black">Reviews Widget</div>
+                    </div>
+                    <div class="...Separator.item_separator--bottom"></div>
+                    <div xclick="switchSettingsView('Layout')" class="padding-x-21 padding-top-13 padding-bottom-13 display-flex align-items-center cursor-pointer background-color-extra-gray:hover">
+                        <div class="text-5">Layout</div>
+                    </div>
+                    <div class="...Separator.item_separator--bottom"></div>
+                    <div class="padding-x-21 padding-top-13 padding-bottom-13 display-flex align-items-center cursor-pointer background-color-extra-gray:hover">
+                        <div class="text-5">General Settings</div>
+                    </div>
+                    <div class="...Separator.item_separator--bottom"></div>
+                    <div class="padding-x-21 padding-top-13 padding-bottom-13 display-flex align-items-center cursor-pointer background-color-extra-gray:hover">
+                        <div class="text-5">Widget Header</div>
+                    </div>
+                    <div class="...Separator.item_separator--bottom"></div>
+                    <div class="padding-x-21 padding-top-13 padding-bottom-13 display-flex align-items-center cursor-pointer background-color-extra-gray:hover">
+                        <div class="text-5">Sorting & Filtering</div>
+                    </div>
+                    <div class="...Separator.item_separator--bottom"></div>
+                    <div class="padding-x-21 padding-top-13 padding-bottom-13 display-flex align-items-center cursor-pointer background-color-extra-gray:hover">
+                        <div class="text-5">Reviews</div>
+                    </div>
+                    <div class="...Separator.item_separator--bottom"></div>
+                    <div class="padding-x-21 padding-top-13 padding-bottom-13 display-flex align-items-center cursor-pointer background-color-extra-gray:hover">
+                        <div class="text-5">Empty State</div>
+                    </div>
+                    <div class="padding-x-21 padding-top-4 display-flex align-items-center cursor-pointer background-color-extra-gray:hover">
+                        
+                    </div>
                 </div>
-                <div class="...Separator.item_separator--bottom"></div>
-                <div class="padding-x-21 padding-top-13 padding-bottom-13 display-flex align-items-center">
-                    <div class="text-5">Layout</div>
-                </div>
-                <div class="...Separator.item_separator--bottom"></div>
-                <div class="padding-x-21 padding-top-13 padding-bottom-13 display-flex align-items-center">
-                    <div class="text-5">General Settings</div>
-                </div>
-                <div class="...Separator.item_separator--bottom"></div>
-                <div class="padding-x-21 padding-top-13 padding-bottom-13 display-flex align-items-center">
-                    <div class="text-5">Widget Header</div>
-                </div>
-                <div class="...Separator.item_separator--bottom"></div>
-                <div class="padding-x-21 padding-top-13 padding-bottom-13 display-flex align-items-center">
-                    <div class="text-5">Sorting & Filtering</div>
-                </div>
-                <div class="...Separator.item_separator--bottom"></div>
-                <div class="padding-x-21 padding-top-13 padding-bottom-13 display-flex align-items-center">
-                    <div class="text-5">Sorting & Filtering</div>
-                </div>
-                <div class="...Separator.item_separator--bottom"></div>
-                <div class="padding-x-21 padding-top-13 padding-bottom-13 display-flex align-items-center">
-                    <div class="text-5">Empty State</div>
+                <div xif="StateManager.WidgetSettings.state=='Layout'">
+                    <div class="padding-x-21 padding-top-17 padding-bottom-17 display-flex align-items-center setting-header">
+                        <div xclick="switchSettingsView('Main')" class="margin-right-13 cursor-pointer">
+                            <?php snippet('svg',[
+                                'class' => 'small-width-5 color-elegant-black',
+                                'path' => '<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75" />'
+                            ]); ?>
+                        </div>
+                        <div class="letter-spacing--2 text-11 text-effect-super-bold font-weight-500 color-elegant-black">Layout</div>
+                    </div>
+                    <div class="...Separator.item_separator--bottom"></div>
+                    <div xclick="widgetConfigs.Layout.update('standardLayout')" class="padding-x-21 padding-top-13 padding-bottom-13 cursor-pointer background-color-primary-extra-light:hover display-flex align-items-center">
+                        <div class="flex-grow-1">
+                            <div class="text-4 color-elegant-black font-weight-500">Standard Layout</div>
+                            <div class="text-3 color-label-gray font-weight-300 margin-top-2">Classic, 3-column layout</div>
+                            <img class="item-width-1 margin-top-7" src="https://yap.yotpo.com/wadmin/assets/wadmin/images/image-picker/table-stars-layout.svg">
+                        </div>
+                        <div xif="widgetConfigs.Layout.name=='standardLayout'">
+                            <?php snippet('svg',[
+                                'class' => 'small-width-8 color-success',
+                                'path' => '<path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />'
+                            ]); ?>
+                        </div>
+                    </div>
+                    <div class="...Separator.item_separator--bottom"></div>
+                    <div xclick="widgetConfigs.Layout.update('boldLayout')" class="padding-x-21 padding-top-13 padding-bottom-13 cursor-pointer background-color-primary-extra-light:hover display-flex align-items-center">
+                        <div class="flex-grow-1">
+                            <div class="text-4 color-elegant-black font-weight-500">Bold Layout</div>
+                            <div class="text-3 color-label-gray font-weight-300 margin-top-2">Modern, image-centric, grid layout</div>
+                            <img class="item-width-1 margin-top-7" src="https://yap.yotpo.com/wadmin/assets/wadmin/images/image-picker/grid-stars-layout.svg">
+                        </div>
+                        <div xif="widgetConfigs.Layout.name=='boldLayout'">
+                            <?php snippet('svg',[
+                                'class' => 'small-width-8 color-success',
+                                'path' => '<path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />'
+                            ]); ?>
+                        </div>
+                    </div>        
                 </div>
             </div>
         </div>

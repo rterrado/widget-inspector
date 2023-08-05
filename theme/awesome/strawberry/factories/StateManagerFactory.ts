@@ -27,6 +27,8 @@ interface StateManager<TStateNames extends string> {
      * @param name - The name of the state
      */
     switch:(name:TStateNames)=>void
+
+    getCurrentState:()=>string
 }
 
 /**
@@ -68,6 +70,9 @@ app.factory<StateManagerFactory>('StateManagerFactory',(
             this.reference.state = name
             this.states[name]()
             this.patchFn()
+        }
+        getCurrentState(){
+            return this.reference.state
         }
     }
     return {

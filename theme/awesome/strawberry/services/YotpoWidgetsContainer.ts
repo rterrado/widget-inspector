@@ -1,3 +1,5 @@
+export type ReviewsWidgetLayout = "standardLayout" | "boldLayout"
+
 export type ReviewsMainWidgetConfig = {
     className: 'ReviewsMainWidget',
     cssOverrideAssetUrl: string,
@@ -49,7 +51,7 @@ export type ReviewsMainWidgetConfig = {
         "syndication-enable": boolean,
         "view-background-color": "transparent",
         "view-empty-button-color": string,
-        "view-layout": "standardLayout",
+        "view-layout": ReviewsWidgetLayout,
         "view-line-separator-style": "smooth",
         "view-primary-color": string,
         "view-primary-font": string,
@@ -98,6 +100,6 @@ export type YotpoWidgetsContainer = {
             yotpo_widget_scripts_loaded: boolean
         }
     },
-    initWidget:(instanceId,widgetPlaceHolder)=>void
-    initWidgets:()=>void
+    initWidget:(instanceId,widgetPlaceHolder)=>Promise<unknown>
+    initWidgets:()=>Promise<unknown>
 }

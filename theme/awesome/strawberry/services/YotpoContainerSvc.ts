@@ -7,7 +7,10 @@ import { ReviewsMainWidgetConfig, YotpoWidgetsContainer } from "./YotpoWidgetsCo
  */
 export interface YotpoContainerSvc {
     getReviewsMainWidget:(appKey:string)=>Promise<ReviewsMainWidgetConfig>,
-    refreshWidgets:()=>void
+    refreshWidgets:()=>void,
+    updateWidgetConfig:<TWidgetConfig>({appKey,instanceId,widgetConfig}:{
+        appKey: string, instanceId: string, widgetConfig: TWidgetConfig
+    })=>Promise<unknown>
 }
 
 app.service<YotpoContainerSvc>('YotpoContainerSvc',()=>{
@@ -32,6 +35,11 @@ app.service<YotpoContainerSvc>('YotpoContainerSvc',()=>{
         refreshWidgets:()=>{
             const yotpoObject: YotpoWidgetsContainer = window['yotpoWidgetsContainer']
             yotpoObject.initWidgets()
+        },
+        updateWidgetConfig:({appKey,instanceId,widgetConfig})=>{
+            const yotpoObject: YotpoWidgetsContainer = window['yotpoWidgetsContainer']
+            yotpoObject.guids[appKey].config.widgets[instanceId] = widgetConfig
+            return yotpoObject.initWidgets()
         }
     }
 })
